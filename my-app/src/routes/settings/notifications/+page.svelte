@@ -1,0 +1,1 @@
+<h1>/settings/notifications</h1>
