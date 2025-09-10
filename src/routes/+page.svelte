@@ -1,2 +1,7 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script>
+    let { data } = $props(); // rune die data doorgeeft tussen page.server.js en page.svelte ("magische property")
+
+    const member = data.member; 
+</script>
+
+<h1>Dit is het visitekaartje van {member.name}</h1>
