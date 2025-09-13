@@ -5,3 +5,4 @@
 </script>
 
 <h1>Dit is het visitekaartje van {member.name}</h1>
+<h2>{member.custom.bioSem3}</h2>
