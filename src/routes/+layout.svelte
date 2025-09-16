@@ -12,7 +12,7 @@
 	const member = data.member; 
 </script>
 
-// HEAD
+<!-- HEAD -->
 <svelte:head>
 	<title>{member.name}</title>
 	<link rel="icon" href={favicon} />
