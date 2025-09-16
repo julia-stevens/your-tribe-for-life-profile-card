@@ -9,7 +9,7 @@ export async function load({ url }) {
         if (typeof member.custom === "string") {
             member.custom = JSON.parse(member.custom);
         }
-      } catch (error) { 
+    } catch (error) { 
         member.custom = {}; 
     }
 

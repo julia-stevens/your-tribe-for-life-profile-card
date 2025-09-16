@@ -1,30 +1,19 @@
 <script>
-    let { data } = $props(); // rune die data doorgeeft tussen page.server.js en page.svelte ("magische property")
-
+    import arrowLinkLight from "$lib/assets/arrow-link-lightmode.svg";
+	import avatarLight from "$lib/assets/avatar-lightmode.svg";
+	import avatarHeadLight from "$lib/assets/avatar-head-lightmode.svg";
+	import iconLight from "$lib/assets/icon-lightmode.svg";
+    
+    let { data } = $props(); 
     const member = data.member; 
 </script>
-
-<main>
-    <header>
-        <button>
-            [color mode]
-            <img 
-                src="icon-lightmode.svg" 
-                alt="Change to darkmode"
-                width="50"
-                height="50"
-                style="object-fit: cover;"
-            >
-        </button>
-    </header>
-
     <section class="introduction">
-        <h1>
+        <h1 class="column">
             <span>Hello.</span>
             <span>I'm Julia.</span>
         </h1>
         <img 
-            src="avatar-lightmode.svg" 
+            src={avatarLight} 
             alt="Avatar"
             width="100"
             height="100"
@@ -32,7 +21,7 @@
         >
     </section>
 
-    <section class="about">
+    <section class="about column">
         <h2>
             About
         </h2>
@@ -41,8 +30,8 @@
         </p>
     </section>
 
-    <section class="projects">
-        <div class="projects_description">
+    <section class="projects column column">
+        <div class="projects_description column">
             <h2>
                 Projects
             </h2>
@@ -50,14 +39,15 @@
                 {member.custom.projectsSem3}
             </p>
         </div>
-        <div class="projects_content">
+        <div class="projects_content column">
             <a 
                 href="{member.custom.projectLink1Sem3}"
+                
             >
-                <article>
+                <article class="row">
                     <h3>{member.custom.projectName1Sem3}</h3>
                     <img 
-                        src="arrow-link-lightmode.svg" 
+                        src={arrowLinkLight} 
                         alt=""
                         width="20"
                         height="20"
@@ -67,11 +57,12 @@
             </a>
             <a 
                 href="{member.custom.projectLink2Sem3}"
+                
             >
-                <article>
+                <article class="row">
                     <h3>{member.custom.projectName2Sem3}</h3>
                     <img 
-                        src="arrow-link-lightmode.svg" 
+                        src={arrowLinkLight} 
                         alt=""
                         width="20"
                         height="20"
@@ -82,63 +73,91 @@
         </div>
     </section>
 
-    <section class="funfacts">
+    <section class="funfacts column">
         <h2>Fun facts</h2>
-        <dl>
-            <dt>Favorite color</dt>
-            <dd>{member.fav_color}</dd>
-        </dl>
-        <dl>
-            <dt>Favorite Emoji</dt>
-            <dd>{member.fav_emoji}</dd>
-        </dl>
-        <dl>
-            <dt>Favorite tag</dt>
-            <dd>{member.fav_tag}</dd>
-        </dl>
-        <dl>
-            <dt>Favorite feature</dt>
-            <dd>{member.fav_feature}</dd>
-        </dl>
-        <dl>
-            <dt>Favorite attribute</dt>
-            <dd>{member.fav_attribute}</dd>
-        </dl>
+
+        <div class="funfacts-inner">
+            <dl>
+                <dt>Favorite color</dt>
+                <dd>{member.fav_color}</dd>
+            </dl>
+            <dl>
+                <dt>Favorite Emoji</dt>
+                <dd>{member.fav_emoji}</dd>
+            </dl>
+            <dl>
+                <dt>Favorite tag</dt>
+                <dd>{member.fav_tag}</dd>
+            </dl>
+            <dl>
+                <dt>Favorite feature</dt>
+                <dd>{member.fav_feature}</dd>
+            </dl>
+            <dl>
+                <dt>Favorite attribute</dt>
+                <dd>{member.fav_attribute}</dd>
+            </dl>
+        </div>
     </section>
 
-    <footer>
-        <div class="to-top">
-            <a 
-                href=""
-            >
-                to top
-            </a>
-        </div>
-        <div class="link">
-            <a 
-                href=""
-            >
-                github
-                <img 
-                    src="arrow-link-lightmode.svg" 
-                    alt=""
-                    width="20"
-                    height="20"
-                    style="object-fit: cover;"
-                >
-            </a>
-        </div>
-        <div class="copyright">
-            <p>© Julia Stevens</p>
-        </div>
-        <div class="footer-image">
-            <img 
-                src="avatar-head-lightmode.svg" 
-                alt="Avatar"
-                width="50"
-                height="50"
-                style="object-fit: cover;"
-            >
-        </div>
-    </footer>
-</main>
+
+<style>
+    /* INTRODUCTION */
+    .introduction {
+        position: relative; 
+    }
+    
+    .introduction img {
+        width: 10rem;
+        height: auto;
+    }
+    @media (prefers-color-scheme: dark) {
+        .introduction img {
+            content: url("$lib/assets/avatar-darkmode.svg");
+        }
+    }
+
+    /* ABOUT */
+    .about, .projects_description, .funfacts {
+        gap: var(--gap-m);
+    }
+
+    .projects, .projects_content {
+        gap: var(--gap-s);
+    }
+
+    .projects article {
+        justify-content: space-between;
+        border: 2px solid var(--border-primary);
+        width: 70vw;
+        max-width: 20rem;
+        padding: .5em 1em;
+    }
+
+    .projects article img{
+        width: 1rem;
+        height: 1rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .projects article img {
+            content: url("$lib/assets/arrow-link-darkmode.svg");
+        }
+    }
+
+    /* FUN FACTS */
+    .funfacts {
+        width: 100%;
+        max-width: 30rem;
+    }
+
+    .funfacts dl {
+        display: flex; 
+        justify-content: space-between;
+    }
+    
+    .funfacts dt {
+        color: var(--highlight-primary);
+        font-weight: 800;
+    }
+</style>
