@@ -163,8 +163,8 @@
 		height: 1rem;
 	}
 
-    footer .link a img {
-        @media (prefers-color-scheme: dark) {
+    @media (prefers-color-scheme: dark) {
+        footer .link a img {
             content: url($lib/assets/arrow-link-darkmode.svg);
         }
     }
