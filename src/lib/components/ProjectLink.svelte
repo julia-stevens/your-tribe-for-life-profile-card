@@ -41,12 +41,22 @@
     }
 
     a.even article {
-        --border-radius: 350px 50px 400px 30px / 40px 300px 60px 420px; 
+        /* elliptische afronden voor border */
+        --border-radius: 
+            /* horizontale waarden (links boven, rechts boven, rechts onder, links onder) */
+            350px 50px 400px 30px / 
+            /* verticale waarden (links boven, rechts boven, rechts onder, links onder) */
+            40px 300px 60px 420px; 
         border-radius: var(--border-radius);
     }
 
     a.odd article {
-        --border-radius: 500px 30px 250px 90px / 70px 420px 60px 350px; 
+        /* elliptische afronden voor border */
+        --border-radius: 
+            /* horizontale waarden (links boven, rechts boven, rechts onder, links onder) */
+            500px 30px 250px 90px 
+            /* verticale waarden (links boven, rechts boven, rechts onder, links onder) */
+            / 70px 420px 60px 350px; 
         border-radius: var(--border-radius);
     }
 </style>

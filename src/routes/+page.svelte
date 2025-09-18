@@ -56,11 +56,12 @@
         </p>
     </div>
     <div class="projects_content">
-        {#each projects as project, i}
+        <!-- index meegeven en markeer als "even" als index deelbaar is door 2 -->
+        {#each projects as project, i} 
         <ProjectLink
             href={project.href}
             name={project.name}
-            even={i % 2 === 0}
+            even={i % 2 === 0}  
         />
         {/each}
     </div>
@@ -88,7 +89,6 @@
         </dl>
     </div>
 </section>
-
 
 <style>
     /* INTRODUCTION */
