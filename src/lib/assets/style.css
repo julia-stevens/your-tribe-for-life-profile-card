@@ -33,6 +33,11 @@
     padding: 0;
 }
 
+*:focus-visible {
+    outline: 3px dashed var(--highlight-secondary);
+    outline-offset: 4px;
+}
+
 /* RESETS */
 button {
     appearance: none;

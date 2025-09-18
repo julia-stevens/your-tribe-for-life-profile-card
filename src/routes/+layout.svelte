@@ -31,6 +31,8 @@
     </style>
 </svelte:head>
 
+<a href="#main" class="skip-link">Skip to content</a>
+
 <!-- HEADER -->
 <header>
 	<button class="column">
@@ -45,7 +47,7 @@
 </header>
 
 <!-- CHILDREN -->
-<main class="column">
+<main id="main" class="column">
 	{@render children?.()}
 </main>
 
@@ -88,6 +90,21 @@
 </footer>
 
 <style>
+    /* SKIP Link */
+    .skip-link {
+        position: absolute; 
+        top: 5rem;
+        left: -15rem;
+        background-color: var(--highlight-secondary);
+        color: black;
+        padding: .5em 1em;
+        transition: .3s ease-in;
+    }
+
+    .skip-link:focus {
+        left: 5rem;
+    }
+
 	/* MAIN */
 	main {
         gap: var(--gap-xl);
