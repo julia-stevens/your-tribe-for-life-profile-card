@@ -24,7 +24,7 @@
     ]
 </script>
 
-<section class="introduction">
+<section class="introduction column">
     <h1 class="column">
         <span>Hello.</span>
         <span>I'm Julia.</span>
@@ -34,7 +34,6 @@
         alt="Avatar"
         width="100"
         height="100"
-        style="object-fit: cover;"
     >
 </section>
 
@@ -56,11 +55,12 @@
             {member.custom.projectsSem3}
         </p>
     </div>
-    <div class="projects_content column">
-        {#each projects as project}
+    <div class="projects_content">
+        {#each projects as project, i}
         <ProjectLink
             href={project.href}
             name={project.name}
+            even={i % 2 === 0}
         />
         {/each}
     </div>
@@ -83,10 +83,6 @@
             <dd>{member.fav_tag}</dd>
         </dl>
         <dl>
-            <dt>Favorite feature</dt>
-            <dd>{member.fav_feature}</dd>
-        </dl>
-        <dl>
             <dt>Favorite attribute</dt>
             <dd>{member.fav_attribute}</dd>
         </dl>
@@ -96,17 +92,32 @@
 
 <style>
     /* INTRODUCTION */
-    .introduction {
+    .introduction, .about, .projects, .funfacts {
         position: relative; 
+        align-self: center;
     }
     
     .introduction img {
-        width: 10rem;
+        order: -1;
+        align-self: flex-end;
+        width: 35vw;
+        max-width: 15rem;
         height: auto;
     }
     @media (prefers-color-scheme: dark) {
         .introduction img {
             content: url("$lib/assets/avatar-darkmode.svg");
+        }
+    }
+    @media (min-width: 400px) {
+        .introduction {
+            flex-direction: row;
+            align-items: end;
+            justify-content: space-between;
+        }
+
+        .introduction img {
+            order: 1;
         }
     }
 
@@ -116,6 +127,14 @@
     }
 
     .projects, .projects_content {
+        gap: var(--gap-s);
+    }
+
+    /* PROJECTS */
+    .projects_content {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));   
         gap: var(--gap-s);
     }
 

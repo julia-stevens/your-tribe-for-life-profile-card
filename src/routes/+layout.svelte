@@ -40,7 +40,6 @@
 			alt="Change to darkmode"
 			width="50"
 			height="50"
-			style="object-fit: cover;"
 		>
 	</button>
 </header>
@@ -71,7 +70,6 @@
 					alt=""
 					width="20"
 					height="20"
-					style="object-fit: cover;"
 				>
 			</a>
 		</div>
@@ -85,7 +83,6 @@
 			alt="Avatar"
 			width="50"
 			height="50"
-			style="object-fit: cover;"
 		>
 	</div>
 </footer>
@@ -94,10 +91,22 @@
 	/* MAIN */
 	main {
         gap: var(--gap-xl);
+        padding: var(--gap-l);
+
+        width: 100%;
+        max-width: 40rem;
         margin: 0 auto;
     }
 
 	/* HEADER */
+    header {
+        padding: var(--gap-l);
+
+        width: 100%;
+        max-width: 40rem;
+        margin: 0 auto;
+    }
+
 	button {
         font-family: inherit;
         align-items: center;
@@ -106,8 +115,8 @@
 
     button img {
         order: -1;
-        width: 3rem;
-        height: 3rem;
+        width: 5rem;
+        height: 5rem;
     }
     @media (prefers-color-scheme: dark) {
         button img {
@@ -118,10 +127,14 @@
 	/* FOOTER */
     footer {
         --border: 2px solid var(--border-primary);
-
-        width: 100%;
+        
+        padding: 0 var(--gap-l);
         gap: var(--gap-xl);
         position: relative; 
+
+        width: 100%;
+        max-width: 40rem;
+        margin: 0 auto;
     }
 
     .footer-image {
@@ -164,6 +177,9 @@
         border-left: var(--border);
         border-right: var(--border);
         position: relative; 
+
+        --border-radius: 350px 50px 400px 30px / 40px 300px 60px 420px;
+        border-radius: var(--border-radius);
     }
 
     .footer-inner div {

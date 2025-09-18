@@ -1,4 +1,5 @@
 :root {
+    /* COLORS */
     --bg-primary: white;
     --text-primary: black;
     --highlight-primary: #FB7775; 
@@ -6,23 +7,25 @@
     --highlight-tertiary: #9BD6F3;       
     --border-primary: black;    
 
+    /* FONTS */
     --font-primary: "Baloo Thambi 2", system-ui;
     --font-size: 16px; 
 
+    /* GAPS */
     --gap-xs: .5em;
     --gap-s: 1em;
     --gap-m: 1.5em;
     --gap-l: 2em;
     --gap-xl: 2.5em;
-}
 
-@media (prefers-color-scheme: dark) {
-    :root {
+    /* DARK MODE */
+    @media (prefers-color-scheme: dark) {
         --bg-primary: #1F242B; 
         --text-primary: white; 
         --border-primary: white;    
     }
 }
+
 
 * {
     box-sizing: border-box;
@@ -36,12 +39,17 @@ button {
     border: none;
     background-color: var(--bg-primary);
     color: var(--text-primary);
+    cursor: pointer;
 }
 
 a {
     color: inherit; 
     text-decoration: none;
     width: fit-content;
+}
+
+img {
+    object-fit: cover;
 }
 
 /* LAYOUT */
